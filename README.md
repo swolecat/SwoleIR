@@ -13,6 +13,11 @@ Get-ItemProperty -ea 0 hklm:\system\currentcontrolset\enum\usbstor\*\* | select 
 gp -ea 0 HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* |Select DisplayName,DisplayVersion,Publisher,InstallDate,InstallLocation | Sort InstallDate -Desc | out-file programs.txt
 ipconfig /displaydns | select-string 'Record Name' | out-file dnscache.txt
 ```
+### ADUniqueScriptID
+Utilize for identification of unique logon scripts present in Active Directory. Logon Scripts are frequently utilized to maintain persistence or compromise additional users via GPO. Requires ActiveDirectory module running in shell `Import-Module ActiveDirectory` . 
+```
+get-aduser  -filter * -properties ScriptPath | Where-Object {$_.Enabled -like "True"} | select ScriptPath | Get-Unique
+```
 
 
 # Feedback
