@@ -3,7 +3,7 @@ A collection of various (and simple) powershell scripts utilized for Windows IR.
 
 # Active Scripts
 ### LocalIR
-Utilize for collection of local accounts, processess, services, active connections, USB history, programs and items in DNS cache locally on a target host. It will dump each into a text file for processing and collection in the directory that the script was ran from. 
+Utilize for collection of local accounts, processess, services, active connections, USB history, programs and items in DNS cache. It will dump each into a text file for processing and collection in the directory that the script was ran from. Use this script locally on the device. 
 ```
 Get-WmiObject -Class Win32_UserAccount -Filter  "LocalAccount='True'"| format-list -property * | out-file accounts.txt
 get-process | format-list -property *| out-file process.txt
