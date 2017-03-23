@@ -1,0 +1,1 @@
+get-aduser  -filter * -properties ScriptPath | Where-Object {$_.Enabled -like "True"} | select ScriptPath | Get-Unique
