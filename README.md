@@ -19,7 +19,7 @@ Utilize for identification of unique logon scripts present in Active Directory. 
 get-aduser  -filter * -properties ScriptPath | Where-Object {$_.Enabled -like "True"} | select ScriptPath | Get-Unique
 ```
 ### Cylance Health Checker
-This script checks the health of deployed Cylance clients
+This script checks the health of deployed Cylance clients by displaying the policy applied to the device, last communication with the cloud and version of the agent.
 ```
 #Swolecat
 clear
